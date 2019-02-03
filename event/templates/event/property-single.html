@@ -1,0 +1,275 @@
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Dog Events</title>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta content="" name="keywords">
+  <meta content="" name="description">
+
+  <!-- Favicons -->
+  <link href="/static/img/favicon.png" rel="icon">
+  <link href="/static/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
+
+  <!-- Bootstrap CSS File -->
+  <link href="/static/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Libraries CSS Files -->
+  <link href="/static/lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <link href="/static/lib/animate/animate.min.css" rel="stylesheet">
+  <link href="/static/lib/ionicons/css/ionicons.min.css" rel="stylesheet">
+  <link href="/static/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+  <!-- Main Stylesheet File -->
+  <link href="/static/css/style.css" rel="stylesheet">
+
+
+</head>
+
+<body>
+
+  <div class="click-closed"></div>
+
+
+  <!--/ Form Search Star /-->
+<div class="box-collapse">
+    <div class="title-box-d">
+      <h3 class="title-d">Search in Dog Events</h3>
+    </div>
+    <span class="close-box-collapse right-boxed ion-ios-close"></span>
+    <div class="box-collapse-wrap form">
+      <form name="myform" method="GET" action="{% url 'search' %}">
+
+    <input type="text" name="search" placeholder="Search" />
+</form>
+
+    </div>
+  </div>
+  <!--/ Form Search End /-->
+
+
+
+  <!--/ Nav Star /-->
+  <nav class="navbar navbar-default navbar-trans navbar-expand-lg fixed-top">
+    <div class="container">
+      <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarDefault"
+        aria-controls="navbarDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <a class="navbar-brand text-brand" href="/#myPage">Dog<span class="color-b">Gie</span></a>
+      <button type="button" class="btn btn-link nav-search navbar-toggle-box-collapse d-md-none" data-toggle="collapse"
+        data-target="#navbarTogglerDemo01" aria-expanded="false">
+        <span class="fa fa-search" aria-hidden="true"></span>
+      </button>
+      <div class="navbar-collapse collapse justify-content-left" id="navbarDefault">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link active" href="/#myPage">Αρχική</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/property-grid.html">Όλες οι Διοργανώσεις</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false">
+              Ανά Κατηγορία
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="{% url 'post_list_category' category='2' %}">Agility</a>
+              <a class="dropdown-item" href="{% url 'post_list_category' category='6' %}">Canicross</a>
+              <a class="dropdown-item" href="{% url 'post_list_category' category='4' %}">DogDance</a>
+              <a class="dropdown-item" href="{% url 'post_list_category' category='5' %}">DogShow</a>
+              <a class="dropdown-item" href="{% url 'post_list_category' category='3' %}">IPO</a>
+              <a class="dropdown-item" href="{% url 'post_list_category' category='1' %}">Mondioring</a>
+              <a class="dropdown-item" href="{% url 'post_list_category' category='7' %}">Obedience</a>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <button type="button" class="btn btn-b-n navbar-toggle-box-collapse d-none d-md-block" data-toggle="collapse"
+        data-target="#navbarTogglerDemo01" aria-expanded="false">
+        <span class="fa fa-search" aria-hidden="true"></span>
+      </button>
+    </div>
+  </nav>
+  <!--/ Nav End /-->
+
+
+
+      <div class="post">
+
+
+
+  <!--/ Intro Single star /-->
+  <section class="intro-single">
+    <div class="container">
+      <div class="row">
+
+
+        <div class="col-md-12 col-lg-8">
+          <div class="title-single-box">
+            <h1 class="title-single">{{ post.name }}</h1>
+            <span class="color-text-a">{{ post.name }}</span>
+          </div>
+        </div>
+        <div class="col-md-12 col-lg-4">
+          <nav aria-label="breadcrumb" class="breadcrumb-box d-flex justify-content-lg-end">
+            <ol class="breadcrumb">
+               <li class="breadcrumb-item">
+                <a href="/#myPage">Αρχική</a>
+              </li>
+              <li class="breadcrumb-item">
+                <a href="/property-grid.html">Όλες οι Διοργανώσεις</a>
+              </li>
+              <li class="breadcrumb-item">
+                <a href="/category/{{ post.category.id }}">Κατηγορία {{ post.category.name }}</a>
+              </li>
+              <li class="breadcrumb-item active" aria-current="page">
+                {{ post.name }}
+              </li>
+            </ol>
+          </nav>
+        </div>
+
+
+      </div>
+    </div>
+  </section>
+  <!--/ Intro Single End /-->
+
+  <!--/ Property Single Star /-->
+  <section class="property-single nav-arrow-b">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12">
+
+          <div class="row justify-content-between">
+            <div class="col-md-5 col-lg-4">
+              <div class="property-price d-flex justify-content-center foo">
+                <div class="card-header-c d-flex">
+                  <div class="card-box-ico">
+                    <span class="ion-money">{{ post.price}}€</span>
+                  </div>
+
+                </div>
+              </div>
+              <div class="property-summary">
+                <div class="row">
+                  <div class="col-sm-12">
+                    <div class="title-box-d section-t4">
+                      <h3 class="title-d">Αναλυτική Περιγραφή</h3>
+                    </div>
+                  </div>
+                </div>
+                <div class="summary-list">
+                  <ul class="list">
+                    <li class="d-flex justify-content-between">
+                      <strong>Διοργάνωση:</strong>
+                      <span>{{ post.name}}</span>
+                    </li>
+                    <li class="d-flex justify-content-between">
+                      <strong>Χώρα:</strong>
+                      <span>{{ post.club.country}}</span>
+                    </li>
+                    <li class="d-flex justify-content-between">
+                      <strong>Διεύθυνση:</strong>
+                      <span>{{ post.club.address}}</span>
+                    </li>
+                    <li class="d-flex justify-content-between">
+                      <strong>Club Διοργανωτής:</strong>
+                      <span><a href="/club/{{post.club.id}}/">{{ post.club.name}}</a></span>
+                    </li>
+                    <li class="d-flex justify-content-between">
+                      <strong>Κριτής:</strong>
+                      <span><a href="/judge/{{post.judge.id}}/">{{ post.judge.name}}</a></span>
+                    </li>
+                    <li class="d-flex justify-content-between">
+                      <strong>Ράτσα Σκύλου:</strong>
+                      <span><a href="/dog/{{post.dog.id}}/">{{ post.dog.name}}</a></span>
+                    </li>
+                    <li class="d-flex justify-content-between">
+                      <strong>Ημερομηνία Διεξαγωγής:</strong>
+                      <span>{{ post.date}}</span>
+                    </li>
+
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-7 col-lg-7 section-md-t3">
+              <div class="row">
+                <div class="col-sm-12">
+                  <div class="title-box-d">
+                    <h3 class="title-d">Περιγραφή Διοργάνωσης</h3>
+                  </div>
+
+
+                </div>
+              </div>
+              <div class="property-description">
+                <p class="description color-text-a">
+                {{ post.description}}
+                </p>
+              </div>
+                 <div class="title-box-d section-t4">
+              <img src="{{ post.image.url}}" alt="">
+            </div>
+
+
+            </div>
+          </div>
+        </div>
+
+
+        </div>
+      </div>
+    </div>
+  </section>
+  <!--/ Property Single End /-->
+
+
+   <!--/ footer Star /-->
+  <section class="section-footer">
+
+  </section>
+  <footer>
+    <div class="container">
+
+          <p class="copyright color-text-a">
+              &copy; Copyright
+              <span class="color-a">DogGie</span> All Rights Reserved.
+            </p>
+
+            </ul>
+
+    </div>
+  </footer>
+  <!--/ Footer End /-->
+
+  <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+  <div id="preloader"></div>
+
+  <!-- JavaScript Libraries -->
+  <script src="/static/lib/jquery/jquery.min.js"></script>
+  <script src="/static/lib/jquery/jquery-migrate.min.js"></script>
+  <script src="/static/lib/popper/popper.min.js"></script>
+  <script src="/static/lib/bootstrap/js/bootstrap.min.js"></script>
+  <script src="/static/lib/easing/easing.min.js"></script>
+  <script src="/static/lib/owlcarousel/owl.carousel.min.js"></script>
+  <script src="/static/lib/scrollreveal/scrollreveal.min.js"></script>
+  <!-- Contact Form JavaScript File -->
+  <script src="/static/contactform/contactform.js"></script>
+
+  <!-- Template Main Javascript File -->
+  <script src="/static/js/main.js"></script>
+
+</body>
+</html>

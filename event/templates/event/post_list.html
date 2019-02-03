@@ -1,0 +1,64 @@
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+
+{% extends 'event/index.html' %}
+
+
+
+
+{% block content %}
+
+        <div class="col-lg-12 col-sm-12 col-xs-12 col-xxs-12">
+          <div class="title-wrap d-flex justify-content-between">
+            <div class="title-box">
+              <h2 class="title-a">Διοργανώσεις</h2>
+            </div>
+            <div class="title-link">
+              <a href="property-grid.html">All Dog Events
+                <span class="ion-ios-arrow-forward"></span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="property-carousel" class="owl-carousel owl-theme">
+
+            {% for post in posts %}
+
+           <div class="carousel-item-b">
+          <div class="card-box-a card-shadow">
+            <div class="img-box-a">
+              <img src="{{ post.image.url}}" alt="" class="img-a img-fluid">
+            </div>
+            <div class="card-overlay">
+              <div class="card-overlay-a-content">
+                <div class="card-header-a">
+                  <h2 class="card-title-a">
+                    <a href="{% url 'post_detail' pk=post.pk %}">{{ post.name }}
+                  </h2>
+                </div>
+                <div class="card-body-a">
+                  <div class="price-box d-flex">
+                    <span class="price-a">Συμμετοχη | € {{ post.price }}</span>
+                  </div>
+                  <a href="{% url 'post_detail' pk=post.pk %}" class="link-a">Για περισσότερες πληροφορίες
+                    <span class="ion-ios-arrow-forward"></span>
+                  </a>
+                </div>
+                <div class="card-footer-a">
+                  <ul class="card-info d-flex justify-content-around">
+                    <li>
+                      <h4 class="card-info-title">Κατηγορία</h4>
+                      <span>{{ post.category }}</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+              {% endfor %}
+{% endblock %}
+
+
